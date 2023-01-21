@@ -1,0 +1,28 @@
+<table id="dataTable" class="table">
+    <!-- <thead>
+        <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Contact</th>
+                        <th scope="col">Role</th>
+                        <th scope="col">Salary</th>
+                        <th scope="col">id</th>
+                    
+        </tr>
+    </thead>
+    <tbody>
+            {% for item in slist%}
+        <tr>
+            <td>{{item.name}}</td>
+            <td>{{item.email}}</td>
+            <td>{{item.contact}}</td>
+            <td>{{item.role}}</td>
+            <td>{{item.salary}}</td>
+            <td>{{item.id}}</td>
+        </tr>
+            {% endfor %}
+    </tbody>
+</table> -->
+
+<div><a href="{% url 'members:exportcsv' %}">
+    <button type="button" class="button">Export to CSV</button></a></div>

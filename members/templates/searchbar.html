@@ -1,0 +1,51 @@
+
+{% extends 'employee/base.html' %}
+{{ error }}
+
+
+{% block title %}
+    <title>Employee List</title>
+    <style>
+        table{
+            margin: 1% 0 0 20%;
+        }
+        h1{
+        margin: 7% 0 8px 27%;
+
+        }
+    </style>
+{% endblock title %}
+
+{% block content %}
+
+{% if post %}
+
+
+
+
+<h1> search result found</h1>
+
+{% for i in post %}
+<table border="1">
+    <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Contact</th>
+        <th>Role</th>
+        <th>Salary</th>
+    </tr>
+    <tr>
+        <td>{{i.name}}</td>
+        <td>{{i.email}}</td>
+        <td>{{i.contact}}</td>
+        <td>{{i.role}}</td>
+        <td>{{i.salary}}</td>
+    
+
+    </tr>
+</table>
+{% endfor %}
+{% else %}
+<h1>nothing found</h1>
+{% endif %}
+{% endblock content %}

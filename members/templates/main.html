@@ -1,0 +1,15 @@
+{% extends "master.html" %}
+
+{% block title %}
+  My Tennis Club
+{% endblock %}
+
+
+{% block content %}
+  <h1>Here are the somedetails</h1>
+
+  
+  <p>Check out all our <a href="members/">members</a></p>
+  <p>check out for the <a href="details/{{ mymember.id }}"> fullbio data</a></p>
+  
+{% endblock %}

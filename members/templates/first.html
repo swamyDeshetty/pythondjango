@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1{
+            color:red;
+        }
+        .manusha{
+            color: green;
+            text-transform: capitalize;
+            text-shadow: 0cm;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="manusha"><h1>Hello welcome to the Django project</h1>
+    <h2>manu is the beautiful girl in the world</h2>
+    <p>django is the one of the hardestframework</p>
+    {% for x in mymembers %}
+    <li>{{ x.firstname }}   </li>
+  {% endfor %}
+</div>
+</body>
+</html>

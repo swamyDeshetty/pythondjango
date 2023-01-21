@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+{% for x in members  reversed%}
+  <p>
+    {{ forloop.counter }} . {{x.firstname }}
+
+  </p>
+{% endfor %} 
+<h2>Hello everyone this is the swamy patel</h2> 
+<!-- this is the code for the commment in the django.. -->
+{% comment %}
+<h4>maths is the one of the best subject in the world</h4>
+{% endcomment %}
+
+<p>{% include 'testing.html' %}</p>
+<li>{% include 'footer.html'%}</li>
+</body>
+</html> 

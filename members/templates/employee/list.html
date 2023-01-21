@@ -1,0 +1,85 @@
+<!-- ./employee/templates/employee/list.html -->
+<!-- As a link -->
+
+
+
+  {% extends 'employee/base.html' %}
+  
+
+
+
+{% block title %}
+    <title>Employee List</title>
+{% endblock title %}
+
+{% block content %}
+    <h1 style="text-align: center; padding-top: 1em; padding-bottom: 1em;">Employees Information</h1>
+<!-- search function -->
+<form action="{% url 'members:searchbar' %}" method="get">  <!--the searchbar is the name of the searchbar function and member is the namespace -->
+<input type="text" name="search"/>
+    <button class="btn btn-primary" type="submit">Search</button>
+    <span>Hello {{user}}</span>
+    <a  class="btn btn-primary " href="{% url 'members:logout' %}">logout</a>
+</form>
+    <table class="table table-striped" border="1">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Contact</th>
+                <th scope="col">Role</th>
+                <th scope="col">Salary</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for emp in page.object_list %}
+                <tr>
+                    <th scope="row">{{ emp.name }}</th>
+                    <td>{{ emp.email }}</td>
+                    <td>{{ emp.contact }}</td>
+                    <td>{{ emp.role }}</td>
+                    <td>{{ emp.salary }}</td>
+                    <td>
+                        <a class="btn btn-info" href="{% url 'members:edit-employee' emp.id %}">Edit</a>
+                        <a class="btn btn-danger" title="delete this user" href="{% url 'members:delete-employee' emp.id %}">Remove</a>
+            
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <div class="text-center">
+        <a href="{% url 'members:create-employee' %}"><button type="button" class="btn btn-primary">Add New Emp</button></a> <a href="{% url 'members:exportcsv' %}">
+            <button type="button" class="btn btn-warning">Export to CSV</button></a>  <a class="btn btn-secondary" href="{% url 'members:createpdf' %}">Create PDF</a>
+    </div> <br> 
+    <nav aria-label="...">
+        <p>Page:{{page.number}}/{{ page.paginator.num_pages}}</p>
+        <ul class="pagination justify-content-center">
+           
+            {% if page.has_previous %}
+           <a class="page-link" href="{% url 'members:employees-list' %}?page={{ page.prev_page_number }}">Previous</a>
+            {% endif %}  
+    
+          {% for num_page in page.paginator.page_range %} <br>
+          {% if page.number == num_page %}
+          <li class="page-item active" aria-current="page">
+            <a class="page-link" href="{% url 'members:employees-list' %}?page={{ num_page }}">{{ num_page }}</a>
+          </li>
+          {% else %}
+          <li class="page-item" aria-current="page">
+            <a class="page-link" href="{% url 'members:employees-list' %}?page={{ num_page }}">{{ num_page }}</a>
+          </li>
+          {% endif %}
+           <br>
+          {% endfor %}
+            {% if page.has_next %}
+            <a class="page-link" href="{% url 'members:employees-list' %}?page={{ page.next_page_number}}">Next</a>
+            {% endif %}
+       
+        </ul>
+      </nav>
+      </div>
+      
+{% endblock content %}
