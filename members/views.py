@@ -71,6 +71,7 @@ def testing(request):
         'Name' : "swamy",
         'Role' : "Python developer",
         'package' : "3LPA",
+        'age':'21',
     }
     return HttpResponse(template.render(context,request))
 # def greeting(request):
