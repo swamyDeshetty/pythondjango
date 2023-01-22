@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -58,7 +59,7 @@ ROOT_URLCONF = 'pythondjango.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR,'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -124,12 +125,21 @@ USE_TZ = True
 STATIC_ROOT = BASE_DIR / 'productionfiles'
 
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 
-#Added by me 
-STATICFILES_DIRS = [
-    BASE_DIR / 'mystaticfiles'
+STATICFILES_DIRS =[
+    os.path.join(BASE_DIR,'static') #this is your static folder
 ]
+STATIC_ROOT = os.path.join(BASE_DIR,'assets')
+
+MEDIA_URL = '/media/'
+
+MEDIA_ROOT = os.path.join(BASE_DIR,'media')
+
+# #Added by me 
+# STATICFILES_DIRS = [
+#     BASE_DIR / 'mystaticfiles'
+# ]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field

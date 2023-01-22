@@ -33,6 +33,9 @@ urlpatterns = [
     path('showmembers/', views.show_members,name='showmembers'),
     path('createpdf/', views.pdf_create,name='createpdf'),
 
+    #templates..
+    path('template/', views.bootstrap,name='template'),
+    
 
 
     ]

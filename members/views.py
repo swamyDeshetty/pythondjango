@@ -284,6 +284,8 @@ def pdf_create(request):
     return HttpResponse('we had some errors')
   return response
 
+def bootstrap(request):
+  return render(request,'index.html')
   
 
   
