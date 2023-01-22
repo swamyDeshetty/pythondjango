@@ -35,6 +35,11 @@ urlpatterns = [
 
     #templates..
     path('template/', views.bootstrap,name='template'),
+
+    #portfolio
+    path('portfolio/', views.portfolio,name='portfolio'),
+
+
     
 
 

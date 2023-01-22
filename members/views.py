@@ -287,6 +287,11 @@ def pdf_create(request):
 
 def bootstrap(request):
   return render(request,'index.html')
+
+#portfolio resume website..
+
+def portfolio(request):
+  return render(request,'portfolio/home.html')
   
 
   
