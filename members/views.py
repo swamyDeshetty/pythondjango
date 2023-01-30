@@ -292,6 +292,10 @@ def bootstrap(request):
 
 def portfolio(request):
   return render(request,'portfolio/home.html')
+
+#admin page..
+def admin(request):
+  return render(request,'adminpage/admin.html')
   
 
   

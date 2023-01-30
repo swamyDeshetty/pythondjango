@@ -12,6 +12,8 @@ urlpatterns = [
     path('greeting/', views.greeting ,name='greeting'),
     #fetching the data from the database in the table format...
     path('table/', views.table,name="table"),
+
+
     #crud operations using django...
     path('list/', views.employees_list, name='employees-list'),
     path('create/', views.create_employee, name='create-employee'),
@@ -37,7 +39,11 @@ urlpatterns = [
     path('template/', views.bootstrap,name='template'),
 
     #portfolio
-    path('portfolio/', views.portfolio,name='portfolio'),
+    path('portfolio/', views.portfolio,name='port-folio'),
+
+    #admin page..
+    path('adminpage/', views.admin,name='admin'),
+
 
 
     
