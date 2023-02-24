@@ -102,7 +102,9 @@ def table(request):
     }
     return HttpResponse(template.render(context,request))
 
+
  # crud operations in the django
+ #fetching the data from the database..
 def employees_list(request):
   employees = Employee.objects.all()
   page = Paginator(employees, 3 )
@@ -117,6 +119,7 @@ def employees_list(request):
   }
   return render(request, 'employee/list.html', context)
 
+#create new record..
 def create_employee(request):
     form = EmployeeForm()
 
@@ -186,7 +189,7 @@ def register(request):
       user = form.cleaned_data.get('username')
       messages.success(request, "Account was created for" +" " + user)
 
-      return redirect('members:login')
+      return redirect('members:login') #login is the namespace of the login url..
   context = {
     'form':form,
   }
