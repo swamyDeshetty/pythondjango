@@ -107,7 +107,7 @@ def table(request):
  #fetching the data from the database..
 def employees_list(request):
   employees = Employee.objects.all()
-  page = Paginator(employees, 3 )
+  page = Paginator(employees,4)
   page_list = request.GET.get('page') #the code is not clear..
   page = page.get_page(page_list)
 
